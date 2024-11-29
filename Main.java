@@ -48,6 +48,17 @@ class Main
 
   //Start coding here!!
   /*recursiveInterestCalc method uses recursion to calulate the new balance in your investment account*/
-  
+  public static double recursiveInterestCalc(double amount, double rate, int years)
+  {
+    if (years == 0) { //base case(s)
+      //final return that ends in recursion
+      return amount;
+    } else { //recursive case(s)
+      double newBalance = amount + (amount * rate);
+      System.out.printf("** recursive call for years %d, amount = $%.2f%n", years, newBalance);
+      //recursive call, chipping away at our "counter"
+      return recursiveInterestCalc(amount, rate, years - 1);
+    }
+  }
 
 }
